@@ -2,6 +2,7 @@ import { render } from "react-dom";
 import ReactDOM from 'react-dom/client';
 import React, { useEffect, useState } from "react";
 import Week from "./components/Week";
+import Subject from "./components/Subject";
 
 
 function Popup(){
@@ -15,7 +16,7 @@ function Popup(){
             response => response.json()
         ).then(
             data => {
-            console.log(data)
+            console.log(data[0])
             setSchedule(data[0])
             setIsLoading(false)
         }
@@ -23,10 +24,16 @@ function Popup(){
     },[])
 
     return(
-        <div>
+        <div className="popup">
             <h2>{isLoading?'Loading...':schedule.groupName}</h2>
             <Week/>
-            <button onClick={()=> console.log('bnt')}>test</button>
+            <Subject
+                subjectNumber={5}
+                subjectTeacher={'Дергунов А.А.'}
+                subjectName={'Технические средства автоматизации и управления, лаб. Г-307 (В-78)'}
+                subjectType={'лаб'}
+            
+            />
         </div>
     )
 }
