@@ -53,13 +53,20 @@
 .day-conatiner{
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    justify-content: space-between;
+    height: 65px;
     align-items: center;
-    padding: 8px;
+    padding: 4px;
     border-radius: 8px;
     width: 36px;
+    box-sizing: border-box;
 
 }
+
+.today{
+    border: 1px solid var(--primary-color);
+}
+
 .day-conatiner:hover{
     background-color: var(--primary-2-color);
     cursor: pointer;

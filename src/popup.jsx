@@ -10,18 +10,18 @@ function Popup(){
     const [schedule,setSchedule] = useState({})
     const [isLoading,setIsLoading] = useState(true)
     
-    useEffect(()=>{
-        const url ='https://mirea.xyz/api/v1.3/groups/certain?name=%D0%98%D0%92%D0%91%D0%9E-07-19'
-        fetch(url).then(
-            response => response.json()
-        ).then(
-            data => {
-            console.log(data[0])
-            setSchedule(data[0])
-            setIsLoading(false)
-        }
-        )
-    },[])
+    // useEffect(()=>{
+    //     const url ='https://mirea.xyz/api/v1.3/groups/certain?name=%D0%98%D0%92%D0%91%D0%9E-07-19'
+    //     fetch(url).then(
+    //         response => response.json()
+    //     ).then(
+    //         data => {
+    //         console.log(data[0])
+    //         setSchedule(data[0])
+    //         setIsLoading(false)
+    //     }
+    //     )
+    // },[])
 
     return(
         <div className="popup">
@@ -34,6 +34,7 @@ function Popup(){
                 subjectType={'лаб'}
             
             />
+            <button onClick={()=>console.log(schedule.schedule)}>show</button>
         </div>
     )
 }
