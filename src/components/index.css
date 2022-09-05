@@ -180,3 +180,9 @@
     background-color: var(--primary-2-color);
     cursor: pointer;
 }
+
+.day-subjects__container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

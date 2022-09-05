@@ -1,15 +1,12 @@
 import React from 'react';
 import Dots from './Dots';
-import { getDayByDate } from './supportingFunctions';
+import { getDayByDate, isToday } from './supportingFunctions';
 
 function Day({date}) {
 
-    const today = new Date();
     let dayContainerClass = 'day-conatiner'
-    if(today.getDate() === date.getDate()){
-        
+    if(isToday(date)){
         dayContainerClass+=' today'
-        
     }
 
      
