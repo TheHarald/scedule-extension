@@ -2,7 +2,11 @@ import React from 'react';
 import './index.css'
 
 function Subject({subjectNumber, subjectName, subjectTeacher, subjectType}) {
-
+    
+    subjectName ?? '---'
+    subjectTeacher ?? '---'
+    subjectType ?? '---'
+    
     let startTime, endTime
     switch (subjectNumber) {
         case 1:
