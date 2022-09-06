@@ -38,17 +38,19 @@ function Subject({subjectNumber, subjectName, subjectTeacher, subjectType, subje
     }
     return (
         <article className='subect__container'>
-            <div className='subject__time'>
-                <span className='subject__number'>{subjectNumber}</span>
-                <div className='time__container'>
-                    <span className='time'>{startTime}</span>
-                    <span className='time'>{endTime}</span>
+            <div className='subject__main-info'>
+                <div className='subject__time'>
+                    <span className='subject__number'>{subjectNumber}</span>
+                    <div className='time__container'>
+                        <span className='time'>{startTime}</span>
+                        <span className='time'>{endTime}</span>
+                    </div>
                 </div>
-            </div>
-            <div className='subject'>
-                <p className='subject__title'>{subjectName}</p>
-                <p className='subject__title primary'>{subjectPlace}</p>
-                <p className='subject__teacher'>{subjectTeacher}</p>
+                <div className='subject'>
+                    <p className='subject__title'>{subjectName}</p>
+                    <p className='subject__title primary'>{subjectPlace}</p>
+                    <p className='subject__teacher'>{subjectTeacher}</p>
+                </div>
             </div>
             <span className='subject__type'>{subjectType}</span>
         </article>

@@ -70,3 +70,18 @@ export function getScheduleByDay(day, schedule){
 
     return result
 }
+
+export function fillSemestr(semester,weekSchedule){ // move to SF
+    semester.map( (week,index) =>{
+        let weekType = index % 2 ?  'even':'odd'
+
+        week.map( (day,index)=>{
+            if(index === 6){ 
+                week[index] = {...day, subjects:[]}
+            }else{
+                week[index] = {...day, subjects: weekSchedule[index][weekType]  }
+            }
+        })
+    })
+
+}

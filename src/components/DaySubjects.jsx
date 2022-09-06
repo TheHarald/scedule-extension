@@ -20,7 +20,6 @@ function DaySubjects({subjects}) {
         })
     }
 
-
     return (
         <div className='day-subjects__container'>
             {daySchedule}

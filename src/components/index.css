@@ -20,6 +20,23 @@
     flex-direction: column;
     gap: 20px;
 }
+
+html{
+    scrollbar-gutter: stable both-edges;
+}
+
+html::-webkit-scrollbar {
+    width: 8px;
+}
+html::-webkit-scrollbar-thumb {
+    background: #D7DBEC;
+    border-radius: 10px;
+}
+html::-webkit-resizer {
+    display: none;
+}
+
+
 .week-dots-container{
     width: 20px;
     height: 16px;
@@ -126,6 +143,13 @@
     justify-content: center;
     align-items: flex-end;
     gap: 4px;
+}
+
+.subject__main-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
 }
 
 .time{

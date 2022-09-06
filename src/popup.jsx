@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import React, { useEffect, useState } from "react";
 import Week from "./components/Week";
 import Subject from "./components/Subject";
-import { fillWeek, getScheduleByDay, isToday } from "./components/supportingFunctions";
+import { fillSemestr, fillWeek, getScheduleByDay, isToday } from "./components/supportingFunctions";
 import DaySubjects from "./components/DaySubjects";
 
 
@@ -22,20 +22,7 @@ function Popup(){
         semester.push(fillWeek(startDay.addDays(i*7)))
     }
 
-    function fillSemestr(semester,weekSchedule){ // move to SF
-        semester.map( (week,index) =>{
-            let weekType = index % 2 ?  'even':'odd'
-
-            week.map( (day,index)=>{
-                if(index === 6){ 
-                    week[index] = {...day, subjects:[]}
-                }else{
-                    week[index] = {...day, subjects: weekSchedule[index][weekType]  }
-                }
-            })
-        })
-
-    }
+    
 
 
     useEffect(()=>{
