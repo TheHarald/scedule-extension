@@ -6,16 +6,17 @@ function SubjectList({subjects, number}) {
     let subjectList = []
 
     if(subjects.length === 0 ){
-        subjectList = <Subject
-            subjectName={'-------------------------------------------'}
-            subjectNumber={number}
-            subjectTeacher={'--------------'}
-            subjectType={'---'}
-        />
+        // subjectList = <Subject
+        //     subjectName={'-------------------------------------------'}
+        //     subjectNumber={number}
+        //     subjectTeacher={'--------------'}
+        //     subjectType={'---'}
+        // />
     }else{
-        subjectList = subjects.map( subject =>{
+        subjectList = subjects.map( (subject,index) =>{
             return(
                 <Subject
+                    key={index}    
                     subjectName={subject.name}
                     subjectNumber={number}
                     subjectTeacher={subject.tutor}

@@ -11,6 +11,7 @@ function DaySubjects({subjects}) {
                 subjects.map( (subjectList, index)=>{
                     return(
                         <SubjectList
+                        key={index}
                             subjects={subjectList}
                             number={index+1}
                         /> 

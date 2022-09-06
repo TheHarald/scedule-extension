@@ -45,3 +45,29 @@ export function isToday(day){
     }
 
 }
+
+
+export function isEqualDay(day1,day2){
+    if( 
+        day1.getDate() === day2.getDate() &&
+        day1.getMonth() === day2.getMonth() &&
+        day1.getFullYear() === day2.getFullYear()){
+        return true
+    }
+
+}
+
+
+export function getScheduleByDay(day, schedule){
+    let result
+    schedule.forEach(weekSchedule => {
+        weekSchedule.forEach( daySchedule=>{
+            if(isEqualDay(daySchedule.day, day)){
+                console.log('test');
+                result=  daySchedule
+            }
+        })
+    });
+
+    return result
+}
