@@ -3,12 +3,9 @@ import ArrowButton from './ArrowButton';
 import Day from './Day';
 import { fillWeek, getDayByDate } from './supportingFunctions';
 
-function Week() {
+function Week({handleDayClick, selectedDay}) {
 
     const [today,setToday] = useState(new Date())
-    
-    
-
     let week = fillWeek(today) 
     useEffect(()=>{
         week = fillWeek(today) 
@@ -27,6 +24,8 @@ function Week() {
                         return (<Day
                             date={day.day}
                             key={index}
+                            setDay={handleDayClick}
+                            day={selectedDay}
                         />)
                     }
                 )

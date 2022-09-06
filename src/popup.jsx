@@ -11,10 +11,10 @@ function Popup(){
 
     
     const [schedule,setSchedule] = useState({})
-    const [testScedule,setTestScedule] = useState([])
+    const [testScedule,setTestScedule] = useState([]) // refactor
     const [isLoading,setIsLoading] = useState(true)
 
-    const [today,setToday] = useState(new Date())
+    const [selectedDay,setSelectedDay] = useState(new Date())
 
     let semester = []
     let startDay = new Date('September 1, 2022');
@@ -22,7 +22,7 @@ function Popup(){
         semester.push(fillWeek(startDay.addDays(i*7)))
     }
 
-    function fillSemestr(semester,weekSchedule){
+    function fillSemestr(semester,weekSchedule){ // move to SF
         semester.map( (week,index) =>{
             let weekType = index % 2 ?  'even':'odd'
 
@@ -54,8 +54,8 @@ function Popup(){
     },[])
 
     useEffect(()=>{
-        console.log('test-> ',testScedule);
-        console.log(getScheduleByDay(today, testScedule));
+        // console.log('test-> ',testScedule);
+        // console.log(getScheduleByDay(today, testScedule));
     },[testScedule])
     
     return(
@@ -65,17 +65,20 @@ function Popup(){
                 :
                 <div>
                     <h2>{schedule.groupName}</h2>
-                    <Week/>
-                    <DaySubjects subjects={getScheduleByDay(today,testScedule).subjects} />
+                    <Week 
+                        handleDayClick={setSelectedDay}
+                        selectedDay={selectedDay}
+                    />
+                    <DaySubjects subjects={getScheduleByDay(selectedDay,testScedule).subjects} />
                 </div>
             }   
-            
+                     
         </div>
     )
 }
 
+
 const root = ReactDOM.createRoot(
     document.getElementById('root')
   );
-
 root.render(<Popup/>)

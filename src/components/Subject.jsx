@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css'
 
-function Subject({subjectNumber, subjectName, subjectTeacher, subjectType}) {
+function Subject({subjectNumber, subjectName, subjectTeacher, subjectType, subjectPlace}) {
     
     subjectName ?? '---'
     subjectTeacher ?? '---'
@@ -47,6 +47,7 @@ function Subject({subjectNumber, subjectName, subjectTeacher, subjectType}) {
             </div>
             <div className='subject'>
                 <p className='subject__title'>{subjectName}</p>
+                <p className='subject__title primary'>{subjectPlace}</p>
                 <p className='subject__teacher'>{subjectTeacher}</p>
             </div>
             <span className='subject__type'>{subjectType}</span>

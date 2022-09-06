@@ -21,6 +21,7 @@ function SubjectList({subjects, number}) {
                     subjectNumber={number}
                     subjectTeacher={subject.tutor}
                     subjectType={subject.type}
+                    subjectPlace={subject.place}
                 />
             )
         })
@@ -29,9 +30,7 @@ function SubjectList({subjects, number}) {
 
     return (
         <div className='subject-list'>
-            {
-                subjectList
-            }
+            {subjectList}
         </div>
     );
 }

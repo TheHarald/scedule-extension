@@ -63,8 +63,7 @@ export function getScheduleByDay(day, schedule){
     schedule.forEach(weekSchedule => {
         weekSchedule.forEach( daySchedule=>{
             if(isEqualDay(daySchedule.day, day)){
-                console.log('test');
-                result=  daySchedule
+                result = daySchedule
             }
         })
     });
