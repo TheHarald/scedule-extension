@@ -1,76 +1,35 @@
-import { render } from "react-dom";
 import ReactDOM from 'react-dom/client';
 import React, { useEffect, useState } from "react";
-import Week from "./components/Week";
-import Subject from "./components/Subject";
-import { fillSemestr, fillWeek, getScheduleByDay, getWeekScheduleByDate, isToday } from "./components/supportingFunctions";
-import DaySubjects from "./components/DaySubjects";
-import Notification from "./components/Notification";
-import Modal from "./components/Modal/Modal";
+import SchedulePage from "./components/SchedulePage/SchedulePage";
+import Modal from './components/Modal/Modal';
+
 
 
 function Popup(){
 
+    const [currentPage, setCurrentPage] = useState('Modal')
+
+    let modal = <Modal onClose={()=> setCurrentPage('SchedulePage')} />
+    let schedulePage = <SchedulePage onClose={()=> setCurrentPage('Modal')} />
+
+    let page = modal
+
+    switch (currentPage) {
+        case 'Modal':
+                page = modal
+            break;
+        case 'SchedulePage':
+                page = schedulePage
+            break;
     
-    const [schedule,setSchedule] = useState({})
-    const [testScedule,setTestScedule] = useState([]) // refactor
-    const [isLoading,setIsLoading] = useState(true)
-
-    const [selectedDay,setSelectedDay] = useState(new Date())
-
-    let semester = []
-    let startDay = new Date('September 1, 2022');
-    for( let i = 0; i<17;i++){
-        semester.push(fillWeek(startDay.addDays(i*7)))
+        default:
+            page = modal
+            break;
     }
-
-    useEffect(()=>{
-
-        chrome.storage.sync.get(['schedule'], function(result) {
-            console.log('Value currently is from use effect ' + JSON.stringify(result));
-
-        });
-
-        const url ='https://mirea.xyz/api/v1.3/groups/certain?name=%D0%98%D0%92%D0%91%D0%9E-07-19'
-        fetch(url).then(
-            response => response.json()
-        ).then(
-            data => {
-            setSchedule(data[0])
-            fillSemestr(semester,data[0].schedule)
-            setTestScedule(semester)
-            setIsLoading(false)
-        })
-    },[])
-
-    useEffect(()=>{
-        // console.log('test-> ',testScedule);
-        // console.log('find', getWeekScheduleByDate(testScedule, selectedDay));
-        // console.log(getScheduleByDay(today, testScedule));
-    },[testScedule])
 
     return(
         <div className="popup">
-            {/* <Modal/> */}
-            {isLoading?
-                <h2>Loading...</h2>
-                :
-                <div>
-                    <h2>{schedule.groupName}</h2>
-                    <Week 
-                        setSelectedDay={setSelectedDay}
-                        selectedDay={selectedDay}
-                        weekSchedule={getWeekScheduleByDate(testScedule, selectedDay)}
-                    />
-                    <DaySubjects subjects={getScheduleByDay(selectedDay,testScedule).subjects} />
-                    <Notification 
-                        title={'title'}
-                        handleClose={()=>{console.log('close');}}
-                    />
-                    
-                </div>
-            }   
-                     
+              {page}
         </div>
     )
 }

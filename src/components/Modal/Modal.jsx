@@ -1,10 +1,13 @@
 import React from 'react';
+import CloseButton from '../Button/CloseButton';
 import './modal.css'
 
-function Modal(props) {
+function Modal({onClose}) {
     return (
         <div className='modal__container'>
-            Modal
+            <CloseButton
+                onClick={onClose}
+            />
         </div>
     );
 }

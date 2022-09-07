@@ -225,22 +225,7 @@ html::-webkit-resizer {
     background: var(--primary-2-color);
 }
 
-.close-button{
-    appearance: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 24px;
-    width: 24px;
-    background: #F5F6FA;
-    border-radius: 8px;
-}
 
-.close-button:hover{
-    background: #E6E9F4;
-
-}
 
 .notification{
     display: flex;
