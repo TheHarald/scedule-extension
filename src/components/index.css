@@ -224,3 +224,61 @@ html::-webkit-resizer {
 .selected{
     background: var(--primary-2-color);
 }
+
+.close-button{
+    appearance: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    background: #F5F6FA;
+    border-radius: 8px;
+}
+
+.close-button:hover{
+    background: #E6E9F4;
+
+}
+
+.notification{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 12px;
+    background: rgba(241, 43, 67,0.1);
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+.hide{
+    display: none;
+}
+
+.notification__text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.notification__title{
+    font-size: 14px;
+    font-weight: 500;
+    color: #F0142F;
+}
+
+.notification__text{
+    font-size: 12px;
+    color: #5A607F;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.notification__main-info{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

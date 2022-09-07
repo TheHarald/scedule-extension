@@ -5,6 +5,8 @@ import Week from "./components/Week";
 import Subject from "./components/Subject";
 import { fillSemestr, fillWeek, getScheduleByDay, getWeekScheduleByDate, isToday } from "./components/supportingFunctions";
 import DaySubjects from "./components/DaySubjects";
+import Notification from "./components/Notification";
+import Modal from "./components/Modal/Modal";
 
 
 function Popup(){
@@ -23,6 +25,12 @@ function Popup(){
     }
 
     useEffect(()=>{
+
+        chrome.storage.sync.get(['schedule'], function(result) {
+            console.log('Value currently is from use effect ' + JSON.stringify(result));
+
+        });
+
         const url ='https://mirea.xyz/api/v1.3/groups/certain?name=%D0%98%D0%92%D0%91%D0%9E-07-19'
         fetch(url).then(
             response => response.json()
@@ -30,7 +38,6 @@ function Popup(){
             data => {
             setSchedule(data[0])
             fillSemestr(semester,data[0].schedule)
-            console.log(semester);
             setTestScedule(semester)
             setIsLoading(false)
         })
@@ -44,6 +51,7 @@ function Popup(){
 
     return(
         <div className="popup">
+            {/* <Modal/> */}
             {isLoading?
                 <h2>Loading...</h2>
                 :
@@ -55,6 +63,11 @@ function Popup(){
                         weekSchedule={getWeekScheduleByDate(testScedule, selectedDay)}
                     />
                     <DaySubjects subjects={getScheduleByDay(selectedDay,testScedule).subjects} />
+                    <Notification 
+                        title={'title'}
+                        handleClose={()=>{console.log('close');}}
+                    />
+                    
                 </div>
             }   
                      
