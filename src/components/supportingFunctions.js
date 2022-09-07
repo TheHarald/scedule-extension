@@ -85,3 +85,16 @@ export function fillSemestr(semester,weekSchedule){ // move to SF
     })
 
 }
+
+
+export function getWeekScheduleByDate(schedule, date){
+    let result
+    schedule.map( (week, index) =>{
+        week.map(day=>{
+            if(isEqualDay(date, day.day)){
+                result = week
+            }
+        })
+    })
+    return result
+}

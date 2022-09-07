@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import React, { useEffect, useState } from "react";
 import Week from "./components/Week";
 import Subject from "./components/Subject";
-import { fillSemestr, fillWeek, getScheduleByDay, isToday } from "./components/supportingFunctions";
+import { fillSemestr, fillWeek, getScheduleByDay, getWeekScheduleByDate, isToday } from "./components/supportingFunctions";
 import DaySubjects from "./components/DaySubjects";
 
 
@@ -22,9 +22,6 @@ function Popup(){
         semester.push(fillWeek(startDay.addDays(i*7)))
     }
 
-    
-
-
     useEffect(()=>{
         const url ='https://mirea.xyz/api/v1.3/groups/certain?name=%D0%98%D0%92%D0%91%D0%9E-07-19'
         fetch(url).then(
@@ -36,15 +33,15 @@ function Popup(){
             console.log(semester);
             setTestScedule(semester)
             setIsLoading(false)
-        }
-        )
+        })
     },[])
 
     useEffect(()=>{
         // console.log('test-> ',testScedule);
+        // console.log('find', getWeekScheduleByDate(testScedule, selectedDay));
         // console.log(getScheduleByDay(today, testScedule));
     },[testScedule])
-    
+
     return(
         <div className="popup">
             {isLoading?
@@ -53,8 +50,9 @@ function Popup(){
                 <div>
                     <h2>{schedule.groupName}</h2>
                     <Week 
-                        handleDayClick={setSelectedDay}
+                        setSelectedDay={setSelectedDay}
                         selectedDay={selectedDay}
+                        weekSchedule={getWeekScheduleByDate(testScedule, selectedDay)}
                     />
                     <DaySubjects subjects={getScheduleByDay(selectedDay,testScedule).subjects} />
                 </div>
