@@ -5,6 +5,7 @@ import DaySubjects from "../DaySubjects";
 import Notification from "../Notification";
 import './schedulepage.css'
 import OptionButton from "../Button/OptionButton";
+import { getData } from "../../hooks/useStorage";
 
 function SchedulePage({onClose}) {
 
@@ -22,21 +23,27 @@ function SchedulePage({onClose}) {
 
     useEffect(()=>{
 
-        chrome.storage.sync.get(['schedule'], function(result) {
-            console.log('Value currently is from use effect ' + JSON.stringify(result));
+        // console.log('getdata-> ',getData('schedule'));
 
-        });
-
-        const url ='https://mirea.xyz/api/v1.3/groups/certain?name=%D0%98%D0%92%D0%91%D0%9E-07-19'
-        fetch(url).then(
-            response => response.json()
-        ).then(
-            data => {
-            setSchedule(data[0])
-            fillSemestr(semester,data[0].schedule)
+        chrome.storage.local.get(['schedule'], function(result) {
+            console.log('Value currently is ' + JSON.stringify(result.schedule)); //result.schedule = data[0]
+            setSchedule(result.schedule)
+            fillSemestr(semester,result.schedule.schedule)
             setTestScedule(semester)
             setIsLoading(false)
-        })
+        });
+
+        // const url ='https://mirea.xyz/api/v1.3/groups/certain?name=%D0%98%D0%92%D0%91%D0%9E-07-19'
+        // fetch(url).then(
+        //     response => response.json()
+        // ).then(
+        //     data => {
+        //     setSchedule(data[0])
+        //     fillSemestr(semester,data[0].schedule)
+        //     setTestScedule(semester)
+        //     setIsLoading(false)
+        // })
+
     },[])
 
     return (

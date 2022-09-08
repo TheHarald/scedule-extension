@@ -15,3 +15,17 @@
     background: #E6E9F4;
 
 }
+
+
+.button-primary{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 10px;
+    border-radius: 6px;
+    color: #fff;
+    background: #1E5EFF;
+    border: none;
+}

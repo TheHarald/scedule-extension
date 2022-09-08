@@ -1,15 +1,18 @@
+import { setData } from "./hooks/useStorage";
 
 const url ='https://mirea.xyz/api/v1.3/groups/certain?name=%D0%98%D0%92%D0%91%D0%9E-07-19'
 fetch(url).then(
     response => response.json()
 ).then(
     data => {
-        console.log(data[0]);
-        chrome.storage.sync.set({schedule:data[0]},function() {
-            // console.log('Value is set to ');
+        console.log('get -> ',data[0]);
+
+        
+        chrome.storage.local.set({schedule:data[0]},function() {
+            console.log('Value is set');
         })
 
-        // chrome.storage.sync.get(['schedule'], function(result) {
+        // chrome.storage.local.get(['schedule'], function(result) {
         //     console.log('Value currently is ' + JSON.stringify(result));
         // });
 
