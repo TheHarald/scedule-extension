@@ -9,7 +9,7 @@ import { optionIcon } from "../icons";
 function SchedulePage({onClose}) {
 
     const [groupName,setGroupName] = useState('')
-    const [schedule,setSchedule] = useState([]) // refactor
+    const [schedule,setSchedule] = useState([])
     const [isLoading,setIsLoading] = useState(true)
 
     const [selectedDay,setSelectedDay] = useState(new Date())
@@ -27,7 +27,6 @@ function SchedulePage({onClose}) {
             setSchedule(semester)
             setIsLoading(false)
         });
-        console.log(semester);
     },[])
 
     return (
@@ -38,7 +37,6 @@ function SchedulePage({onClose}) {
                 <div>
                     <header className="schedule-header">
                         <h2>{groupName}</h2>
-                        {/* <OptionButton  onClick={onClose}/> */}
                         <IconButton
                             icon={optionIcon}
                             onClick={onClose}

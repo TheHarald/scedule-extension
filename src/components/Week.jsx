@@ -8,7 +8,6 @@ function Week({setSelectedDay, selectedDay, weekSchedule}) {
 
     const firstDay = new Date('September 1, 2022')
     const lastDay = new Date('December 21, 2022')
-    const day =  86400
 
     let week = fillWeek(selectedDay) 
     useEffect(()=>{
@@ -17,7 +16,7 @@ function Week({setSelectedDay, selectedDay, weekSchedule}) {
 
 
     function handleChangeWeek(days){
-        
+
         if( selectedDay.addDays(days) < firstDay){
             setSelectedDay(firstDay)
         }else if(selectedDay.addDays(days) > lastDay){

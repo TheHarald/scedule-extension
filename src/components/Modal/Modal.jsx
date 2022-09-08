@@ -35,9 +35,9 @@ function Modal({onClose}) {
                 if(Object.keys(data).length === 0){
                     setError('Группа не найдена')
                 }else{
-                    console.log('get -> ',data[0]); 
+                    // console.log('get -> ',data[0]); 
                     chrome.storage.local.set({schedule:data[0]},function() {
-                        console.log('Value is set');
+                        // console.log('Value is set');
                     })
                     setOk('Группа успешно сохранена')
                 }
