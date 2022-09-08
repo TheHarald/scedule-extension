@@ -12,6 +12,15 @@ function Popup(){
     let modal = <Modal onClose={()=> setCurrentPage('SchedulePage')} />
     let schedulePage = <SchedulePage onClose={()=> setCurrentPage('Modal')} />
 
+
+    useEffect(()=>{
+        chrome.storage.local.get(['schedule'], function(result) {
+            if(result){
+                setCurrentPage('SchedulePage')
+            }
+         });
+    },[])
+
     let page = modal
 
     switch (currentPage) {

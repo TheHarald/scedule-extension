@@ -1,5 +1,14 @@
 .modal__container{
     z-index: 100;
-    width: 100vw;
+    width: 90vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }

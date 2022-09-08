@@ -3,9 +3,10 @@ import './input.css'
 
 function Input({ label, placeholder, value , onChange}) {
 
-    let inputStyle =  'input__field'
+    let inputStyle = 'input__field'
     if(value.length === 10){
-        if(value.match('^[А-я]{4}-\d{2}-\d{2}$')){
+        console.log(value);
+        if(value.match('^[А-я]{4}-[0-9]{2}-[0-9]{2}$')){
             inputStyle += ' correct'
         }else{
             inputStyle += ' error'

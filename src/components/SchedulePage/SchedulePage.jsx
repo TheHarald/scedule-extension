@@ -32,18 +32,6 @@ function SchedulePage({onClose}) {
             setTestScedule(semester)
             setIsLoading(false)
         });
-
-        // const url ='https://mirea.xyz/api/v1.3/groups/certain?name=%D0%98%D0%92%D0%91%D0%9E-07-19'
-        // fetch(url).then(
-        //     response => response.json()
-        // ).then(
-        //     data => {
-        //     setSchedule(data[0])
-        //     fillSemestr(semester,data[0].schedule)
-        //     setTestScedule(semester)
-        //     setIsLoading(false)
-        // })
-
     },[])
 
     return (

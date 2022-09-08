@@ -233,9 +233,15 @@ html::-webkit-resizer {
     align-items: flex-start;
     padding: 16px;
     gap: 12px;
-    background: rgba(241, 43, 67,0.1);
     border-radius: 8px;
     justify-content: space-between;
+}
+
+.invalid{
+    background: rgba(241, 43, 67,0.1);
+}
+.ok{
+    background:  rgba(31, 210, 134, 0.1);
 }
 
 .hide{
@@ -249,10 +255,15 @@ html::-webkit-resizer {
     gap: 14px;
 }
 
-.notification__title{
+.notification__title__error{
     font-size: 14px;
     font-weight: 500;
     color: #F0142F;
+}
+.notification__title__ok{
+    font-size: 14px;
+    font-weight: 500;
+    color: #05874F;
 }
 
 .notification__text{
