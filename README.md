@@ -9,5 +9,8 @@
 3. Распакуйте архив
 
 4. Перейдите в управление расширениями
+   ![Управление расширениями](https://github.com/TheHarald/scedule-extension/blob/master/screnshots/extesion-settings.png)
 5. Включите режим разработчика
+   ![Режим разработчика](https://github.com/TheHarald/scedule-extension/blob/master/screnshots/developer-mode.png)
 6. Загрузите распакованное расширение
+   ![Загрузка](https://github.com/TheHarald/scedule-extension/blob/master/screnshots/load.png)
