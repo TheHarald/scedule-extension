@@ -12,3 +12,8 @@
     flex-direction: row;
     justify-content: flex-end;
 }
+.modal__group-input{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

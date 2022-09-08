@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import Week from "../Week";
 import { fillSemestr, fillWeek, getScheduleByDay, getWeekScheduleByDate} from "../supportingFunctions";
 import DaySubjects from "../DaySubjects";
-import Notification from "../Notification";
 import './schedulepage.css'
-import OptionButton from "../Button/OptionButton";
-import { getData } from "../../hooks/useStorage";
+import IconButton from "../Button/IconButton";
+import { optionIcon } from "../icons";
 
 function SchedulePage({onClose}) {
 
-    const [schedule,setSchedule] = useState({})
-    const [testScedule,setTestScedule] = useState([]) // refactor
+    const [groupName,setGroupName] = useState('')
+    const [schedule,setSchedule] = useState([]) // refactor
     const [isLoading,setIsLoading] = useState(true)
 
     const [selectedDay,setSelectedDay] = useState(new Date())
@@ -22,16 +21,13 @@ function SchedulePage({onClose}) {
     }
 
     useEffect(()=>{
-
-        // console.log('getdata-> ',getData('schedule'));
-
         chrome.storage.local.get(['schedule'], function(result) {
-            console.log('Value currently is ' + JSON.stringify(result.schedule)); //result.schedule = data[0]
-            setSchedule(result.schedule)
+            setGroupName(result.schedule.groupName)
             fillSemestr(semester,result.schedule.schedule)
-            setTestScedule(semester)
+            setSchedule(semester)
             setIsLoading(false)
         });
+        console.log(semester);
     },[])
 
     return (
@@ -41,15 +37,19 @@ function SchedulePage({onClose}) {
                 :
                 <div>
                     <header className="schedule-header">
-                        <h2>{schedule.groupName}</h2>
-                        <OptionButton  onClick={onClose}/>
+                        <h2>{groupName}</h2>
+                        {/* <OptionButton  onClick={onClose}/> */}
+                        <IconButton
+                            icon={optionIcon}
+                            onClick={onClose}
+                        />
                     </header>
                     <Week 
                         setSelectedDay={setSelectedDay}
                         selectedDay={selectedDay}
-                        weekSchedule={getWeekScheduleByDate(testScedule, selectedDay)}
+                        weekSchedule={getWeekScheduleByDate(schedule, selectedDay)}
                     />
-                    <DaySubjects subjects={getScheduleByDay(selectedDay,testScedule).subjects} />            
+                    <DaySubjects subjects={getScheduleByDay(selectedDay,schedule).subjects} />            
                 </div>
             }   
         </>

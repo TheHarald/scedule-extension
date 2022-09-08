@@ -5,16 +5,33 @@ import { fillWeek, getDayByDate } from './supportingFunctions';
 
 function Week({setSelectedDay, selectedDay, weekSchedule}) {
 
+
+    const firstDay = new Date('September 1, 2022')
+    const lastDay = new Date('December 21, 2022')
+    const day =  86400
+
     let week = fillWeek(selectedDay) 
     useEffect(()=>{
         week = fillWeek(selectedDay) 
     },[selectedDay])
 
+
+    function handleChangeWeek(days){
+        
+        if( selectedDay.addDays(days) < firstDay){
+            setSelectedDay(firstDay)
+        }else if(selectedDay.addDays(days) > lastDay){
+            setSelectedDay(lastDay)
+        }else{
+            setSelectedDay(selectedDay.addDays(days))
+        }
+    }
+
     return (
         <div className='week-container'>
             <ArrowButton
                 type={'prev'}
-                onClick={()=> setSelectedDay(selectedDay.addDays(-7))}
+                onClick={()=> handleChangeWeek(-7)}
             />
 
             {week.map(
@@ -31,7 +48,7 @@ function Week({setSelectedDay, selectedDay, weekSchedule}) {
             }
             <ArrowButton
                 type={'next'}
-                onClick={()=> setSelectedDay(selectedDay.addDays(7))}
+                onClick={()=> handleChangeWeek(7)}
             />
         </div>
     );

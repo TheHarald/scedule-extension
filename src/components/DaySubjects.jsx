@@ -1,5 +1,4 @@
 import React from 'react';
-import Subject from './Subject';
 import SubjectList from './SubjectList';
 
 function DaySubjects({subjects}) {

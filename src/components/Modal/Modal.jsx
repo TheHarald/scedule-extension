@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from '../Button/Button';
-import CloseButton from '../Button/CloseButton';
+import IconButton from '../Button/IconButton';
+import { closenIcon, reloadIcon } from '../icons';
 import Input from '../Input/Input';
 import Notification from '../Notification';
 import './modal.css'
@@ -19,6 +20,7 @@ function Modal({onClose}) {
            setGroup(result.schedule.groupName)
         });
     },[])
+
 
     function handleSave(){
 
@@ -61,8 +63,10 @@ function Modal({onClose}) {
     return (
         <div className='modal__container'>
             <div className='modal__header'>
-                <CloseButton
+                <IconButton
                     onClick={onClose}
+                    icon={closenIcon}
+                
                 />
             </div>
             <Input

@@ -1,5 +1,6 @@
 import React from 'react';
-import CloseButton from './Button/CloseButton';
+import IconButton from './Button/IconButton';
+import { closenIcon } from './icons';
 
 function Notification({title, handleClose, type}) {
 
@@ -28,7 +29,10 @@ function Notification({title, handleClose, type}) {
                     <p className={notificationTitleClass}>{title}</p>
                 </div>
             </div>
-            <CloseButton onClick={handleClose}/>  
+            <IconButton 
+                onClick={handleClose}
+                icon={closenIcon}
+            />  
         </article>
     );
 }
