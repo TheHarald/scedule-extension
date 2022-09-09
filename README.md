@@ -4,7 +4,7 @@
 
 1. Перейти в раздел [Releases](https://github.com/TheHarald/scedule-extension/releases)
 2. Скачать архив schedule-app.zip
-   Или скачать архив по [сслыке](https://github.com/TheHarald/scedule-extension/releases/download/v1.0.1-beta/schedule-app.zip)
+   Или скачать архив по [сслыке](https://github.com/TheHarald/scedule-extension/releases/download/v1.0.2-beta/schedule-app.zip)
 
 3. Распакуйте архив
 

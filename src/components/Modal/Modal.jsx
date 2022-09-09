@@ -17,7 +17,9 @@ function Modal({setCurrentPage}) {
 
     useEffect(()=>{
         chrome.storage.local.get(['schedule'], function(result) {
-           setGroup(result.schedule.groupName)
+            if(Object.keys(result).length !== 0){
+                setGroup(result.schedule.groupName)
+            }
         });
     },[])
 
