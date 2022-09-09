@@ -6,7 +6,7 @@ import Input from '../Input/Input';
 import Notification from '../Notification';
 import './modal.css'
 
-function Modal({onClose}) {
+function Modal({setCurrentPage}) {
 
     const [group, setGroup] = useState('')
     const [error,setError] = useState('')
@@ -60,11 +60,21 @@ function Modal({onClose}) {
         
     }
 
+    function handleClose(){
+        chrome.storage.local.get(['schedule'], function(result) {
+            if(Object.keys(result).length !== 0){
+                setCurrentPage('SchedulePage')
+            }else{
+                setError('Выберите группу')
+            }
+         });
+    }
+
     return (
         <div className='modal__container'>
             <div className='modal__header'>
                 <IconButton
-                    onClick={onClose}
+                    onClick={handleClose}
                     icon={closenIcon}
                 
                 />
