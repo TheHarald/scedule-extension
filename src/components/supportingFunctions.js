@@ -71,7 +71,7 @@ export function getScheduleByDay(day, schedule){
     return result
 }
 
-export function fillSemestr(semester,weekSchedule){ // move to SF
+export function fillSemestr(semester,weekSchedule){
     semester.map( (week,index) =>{
         let weekType = index % 2 ?  'even':'odd'
 
@@ -88,13 +88,16 @@ export function fillSemestr(semester,weekSchedule){ // move to SF
 
 
 export function getWeekScheduleByDate(schedule, date){
-    let result
+    let weekSchedule
+    let weekNumber
     schedule.map( (week, index) =>{
         week.map(day=>{
             if(isEqualDay(date, day.day)){
-                result = week
+                weekSchedule = week
+                weekNumber = index+1
             }
         })
     })
-    return result
+    return {weekSchedule, weekNumber}
 }
+

@@ -5,6 +5,7 @@ import DaySubjects from "../DaySubjects";
 import './schedulepage.css'
 import IconButton from "../Button/IconButton";
 import { optionIcon } from "../icons";
+import Header from "../Header/Header";
 
 function SchedulePage({onClose}) {
 
@@ -34,18 +35,16 @@ function SchedulePage({onClose}) {
             {isLoading?
                 <h2>Loading...</h2>
                 :
-                <div>
-                    <header className="schedule-header">
-                        <h2>{groupName}</h2>
-                        <IconButton
-                            icon={optionIcon}
-                            onClick={onClose}
-                        />
-                    </header>
+                <div className='schedule-page__conatiner'>
+                    <Header
+                        groupName={groupName}
+                        onOptionClick={onClose}
+                        weekNumber={getWeekScheduleByDate(schedule, selectedDay).weekNumber}
+                    />
                     <Week 
                         setSelectedDay={setSelectedDay}
                         selectedDay={selectedDay}
-                        weekSchedule={getWeekScheduleByDate(schedule, selectedDay)}
+                        weekSchedule={getWeekScheduleByDate(schedule, selectedDay).weekSchedule}
                     />
                     <DaySubjects subjects={getScheduleByDay(selectedDay,schedule).subjects} />            
                 </div>

@@ -3,6 +3,7 @@ import Button from '../Button/Button';
 import IconButton from '../Button/IconButton';
 import { closenIcon, reloadIcon } from '../icons';
 import Input from '../Input/Input';
+import NavigationButton from '../NavigationButton/NavigationButton';
 import Notification from '../Notification';
 import './modal.css'
 
@@ -13,7 +14,6 @@ function Modal({setCurrentPage}) {
     const [ok,setOk] = useState('')
 
     const url ='https://mirea.xyz/api/v1.3/groups/certain?name='
-
 
     useEffect(()=>{
         chrome.storage.local.get(['schedule'], function(result) {
@@ -75,6 +75,11 @@ function Modal({setCurrentPage}) {
     return (
         <div className='modal__container'>
             <div className='modal__header'>
+                <NavigationButton 
+                    text={'К расписанию'}
+                    blocked={ group.length !== 10}
+                    onClick={handleClose}
+                />
                 <IconButton
                     onClick={handleClose}
                     icon={closenIcon}

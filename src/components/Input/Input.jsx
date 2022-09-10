@@ -5,7 +5,6 @@ function Input({ label, placeholder, value , onChange}) {
 
     let inputStyle = 'input__field'
     if(value.length === 10){
-        console.log(value);
         if(value.match('^[А-я]{4}-[0-9]{2}-[0-9]{2}$')){
             inputStyle += ' correct'
         }else{

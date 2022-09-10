@@ -1,0 +1,27 @@
+.navigation-button__container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    appearance: none;
+    border: none;
+    background: #F5F6FA;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.navigation-button__container:hover{
+    background: #E6E9F4;
+
+}
+
+.navigation-button__text{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black-color);
+}
+
+.blocked{
+    opacity: 0.3;
+    cursor: not-allowed;
+}

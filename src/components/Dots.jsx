@@ -11,7 +11,22 @@ function Dots({weekSchedule, date}) {
         if(subject.length === 0){
             scheduleDots.push(<span key={index} className='week-dots-container__dot'></span>)
         }else{
-            scheduleDots.push(<span key={index} className='week-dots-container__dot active'></span>)
+            switch (subject[0].type) {
+                case 'П':
+                    scheduleDots.push(<span key={index} className='week-dots-container__dot active prcatice'></span>)
+                    break;
+                case 'ЛБ':
+                    scheduleDots.push(<span key={index} className='week-dots-container__dot active lab'></span>)
+                    break;
+                case 'Л':
+                    scheduleDots.push(<span key={index} className='week-dots-container__dot active lection'></span>)
+                    break;
+            
+                default:
+                    scheduleDots.push(<span key={index} className='week-dots-container__dot active prcatice'></span>)
+                    break;
+            }
+            
         }
     })
 

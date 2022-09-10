@@ -1,12 +1,6 @@
 
 function setData(key,value){
  
-    // let obj = {
-    //     [key]: value
-    // }
-
-    // console.log('obj ',obj);
-
     chrome.storage.local.set({schedule: value},function() {
         // console.log(`value is set with key=${key}`);
     })

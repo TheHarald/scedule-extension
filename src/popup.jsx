@@ -16,7 +16,6 @@ function Popup(){
     useEffect(()=>{
         chrome.storage.local.get(['schedule'], function(result) {
             if(Object.keys(result).length !== 0){
-                console.log(Object.keys(result));
                 setCurrentPage('SchedulePage')
             }
          });

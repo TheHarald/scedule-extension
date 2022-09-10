@@ -2,9 +2,9 @@ import React from 'react';
 
 function IconButton({onClick, icon}) {
     return (
-        <div onClick={onClick} className='button'>
+        <button onClick={onClick} className='button'>
             {icon}
-        </div>
+        </button>
     );
 }
 

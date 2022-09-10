@@ -36,6 +36,11 @@ html::-webkit-resizer {
     display: none;
 }
 
+.schedule-page__conatiner{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 .week-dots-container{
     width: 20px;

@@ -8,6 +8,7 @@ function Subject({subjectNumber, subjectName, subjectTeacher, subjectType, subje
     subjectType ?? '---'
     
     let startTime, endTime
+    let subjectTypeClass = 'subject__type'
     switch (subjectNumber) {
         case 1:
             startTime='09:00'
@@ -36,6 +37,23 @@ function Subject({subjectNumber, subjectName, subjectTeacher, subjectType, subje
     
         
     }
+    
+
+    switch (subjectType) {
+        case 'ЛБ':
+                subjectTypeClass+=' lab'
+            break;
+        case 'П':
+            subjectTypeClass+=' parctice'
+            break;
+        case 'Л':
+            subjectTypeClass+=' lection'
+            break;
+    
+        default:
+
+            break;
+    }
     return (
         <article className='subect__container'>
             <div className='subject__main-info'>
@@ -52,7 +70,7 @@ function Subject({subjectNumber, subjectName, subjectTeacher, subjectType, subje
                     <p className='subject__teacher'>{subjectTeacher}</p>
                 </div>
             </div>
-            <span className='subject__type'>{subjectType}</span>
+            <span className={subjectTypeClass}>{subjectType}</span>
         </article>
     );
 }
