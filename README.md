@@ -1,5 +1,9 @@
 # Расширение для просмотра расписания (Google Chrome)
 
+### Демонстрация
+
+![Демо](https://github.com/TheHarald/scedule-extension/blob/master/screnshots/demo.gif)
+
 ### Установка
 
 1. Перейти в раздел [Releases](https://github.com/TheHarald/scedule-extension/releases)
