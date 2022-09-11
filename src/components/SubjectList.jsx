@@ -1,9 +1,10 @@
 import React from 'react';
 import Subject from './Subject';
 
-function SubjectList({subjects, number}) {
+function SubjectList({subjects, number, weekNumber}) {
 
     let subjectList = []
+
 
     if(subjects.length === 0 ){
         // subjectList = <Subject
@@ -14,16 +15,18 @@ function SubjectList({subjects, number}) {
         // />
     }else{
         subjectList = subjects.map( (subject,index) =>{
-            return(
-                <Subject
-                    key={index}    
-                    subjectName={subject.name}
-                    subjectNumber={number}
-                    subjectTeacher={subject.tutor}
-                    subjectType={subject.type}
-                    subjectPlace={subject.place}
-                />
-            )
+            if(subject.weeks === null || subject.weeks.includes(weekNumber)){
+                return(
+                    <Subject
+                        key={index}    
+                        subjectName={subject.name}
+                        subjectNumber={number}
+                        subjectTeacher={subject.tutor}
+                        subjectType={subject.type}
+                        subjectPlace={subject.place}
+                    />
+                )
+            }    
         })
     }
 

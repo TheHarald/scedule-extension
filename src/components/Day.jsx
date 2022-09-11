@@ -2,7 +2,7 @@ import React from 'react';
 import Dots from './Dots';
 import { getDayByDate, isEqualDay, isToday } from './supportingFunctions';
 
-function Day({date, day, setDay, weekSchedule}) {
+function Day({date, day, setDay, weekSchedule, weekNumber}) {
 
     let dayContainerClass = 'day-conatiner'
     if(isToday(date)){
@@ -25,6 +25,7 @@ function Day({date, day, setDay, weekSchedule}) {
             <Dots 
                 weekSchedule={weekSchedule}
                 date={date}
+                weekNumber={weekNumber}
             />
             
         </div>

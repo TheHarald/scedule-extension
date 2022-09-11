@@ -1,7 +1,7 @@
 import React from 'react';
 import SubjectList from './SubjectList';
 
-function DaySubjects({subjects}) {
+function DaySubjects({subjects,weekNumber}) {
 
     let daySchedule
 
@@ -11,6 +11,7 @@ function DaySubjects({subjects}) {
         daySchedule = subjects.map( (subjectList, index)=>{
             return(
                 <SubjectList
+                    weekNumber={weekNumber}
                     key={index}
                     subjects={subjectList}
                     number={index+1}

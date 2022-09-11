@@ -45,8 +45,12 @@ function SchedulePage({onClose}) {
                         setSelectedDay={setSelectedDay}
                         selectedDay={selectedDay}
                         weekSchedule={getWeekScheduleByDate(schedule, selectedDay).weekSchedule}
+                        weekNumber={getWeekScheduleByDate(schedule, selectedDay).weekNumber}
                     />
-                    <DaySubjects subjects={getScheduleByDay(selectedDay,schedule).subjects} />            
+                    <DaySubjects 
+                        subjects={getScheduleByDay(selectedDay,schedule).subjects} 
+                        weekNumber={getWeekScheduleByDate(schedule, selectedDay).weekNumber}
+                    />            
                 </div>
             }   
         </>

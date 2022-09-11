@@ -3,7 +3,7 @@ import ArrowButton from './ArrowButton';
 import Day from './Day';
 import { fillWeek, getDayByDate } from './supportingFunctions';
 
-function Week({setSelectedDay, selectedDay, weekSchedule}) {
+function Week({setSelectedDay, selectedDay, weekSchedule, weekNumber}) {
 
 
     const firstDay = new Date('September 1, 2022')
@@ -41,6 +41,7 @@ function Week({setSelectedDay, selectedDay, weekSchedule}) {
                             setDay={setSelectedDay}
                             day={selectedDay}
                             weekSchedule={weekSchedule}
+                            weekNumber={weekNumber}
                         />)
                     }
                 )
