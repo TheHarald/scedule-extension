@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Week from "../Week";
 import { fillSemestr, fillWeek, getScheduleByDay, getWeekScheduleByDate} from "../supportingFunctions";
 import DaySubjects from "../DaySubjects";
 import './schedulepage.css'
-import IconButton from "../Button/IconButton";
-import { optionIcon } from "../icons";
 import Header from "../Header/Header";
+import Week from "../Week/Week";
 
 function SchedulePage({onClose}) {
 

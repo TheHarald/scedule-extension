@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ArrowButton from './ArrowButton';
 import Day from './Day';
-import { fillWeek, getDayByDate } from './supportingFunctions';
+import { fillWeek, getDayByDate } from '../supportingFunctions';
 
 function Week({setSelectedDay, selectedDay, weekSchedule, weekNumber}) {
 

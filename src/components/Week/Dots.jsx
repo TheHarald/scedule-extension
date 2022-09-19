@@ -1,6 +1,6 @@
 import React from 'react';
-import './index.css'
-import { isEqualDay } from './supportingFunctions';
+import '../index.css'
+import { isEqualDay } from '../supportingFunctions';
 
 function Dots({weekSchedule, date , weekNumber}) {
 
@@ -8,14 +8,7 @@ function Dots({weekSchedule, date , weekNumber}) {
     let todaySchedule = weekSchedule.filter((daySchedule)=> isEqualDay(daySchedule.day, date))[0].subjects
 
     todaySchedule.map((subject, index)=>{
-        console.log(subject);
-
-        // if(subject.weeks === null){
-
-        // }else if(subject.weeks.includes(weekNumber)){
-
-        // }
-
+    
         if(subject.length === 0){
             scheduleDots.push(<span key={index} className='week-dots-container__dot'></span>)
         }else{
@@ -39,7 +32,6 @@ function Dots({weekSchedule, date , weekNumber}) {
                 scheduleDots.push(<span key={index} className='week-dots-container__dot'></span>)
             }
 
-            
             
         }
     })

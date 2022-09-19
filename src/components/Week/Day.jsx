@@ -1,6 +1,6 @@
 import React from 'react';
+import { getDayByDate, isEqualDay, isToday } from '../supportingFunctions';
 import Dots from './Dots';
-import { getDayByDate, isEqualDay, isToday } from './supportingFunctions';
 
 function Day({date, day, setDay, weekSchedule, weekNumber}) {
 

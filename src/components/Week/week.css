@@ -1,0 +1,22 @@
+.week-dots-container{
+    width: 20px;
+    height: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.week-dots__row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    
+}
+
+.week-dots-container__dot{
+    height: 4px;
+    width: 4px;
+    border-radius: 2px;
+    background: var(--neutral-6-color);
+}
