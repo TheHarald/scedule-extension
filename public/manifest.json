@@ -2,20 +2,16 @@
   "short_name": "Schedule App",
   "name": "MIREA Schedule App",
   "manifest_version": 3,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "icons": { 
     "16": "icon16.png",        
     "48": "icon48.png",        
     "128": "icon128.png" },
-  "background": {
-    "service_worker": "background.js"
-  },
   "action": {
     "default_popup": "popup.html",
     "default_title": "Расписание"
   },
   "permissions": [
-    "scripting",
     "storage"
   ],
   "host_permissions": [
