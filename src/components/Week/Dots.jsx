@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../index.css'
-import { isEqualDay } from '../supportingFunctions';
+import { getSubjectByWeekNumber, isEqualDay } from '../supportingFunctions';
 
 function Dots({weekSchedule, date , weekNumber}) {
 
@@ -12,8 +12,8 @@ function Dots({weekSchedule, date , weekNumber}) {
         if(subject.length === 0){
             scheduleDots.push(<span key={index} className='week-dots-container__dot'></span>)
         }else{
-            if(subject[0].weeks === null || subject[0].weeks.includes(weekNumber) ){
-                switch (subject[0].type) {
+            if(getSubjectByWeekNumber(subject, weekNumber).isExist){
+                switch (getSubjectByWeekNumber(subject, weekNumber).result.type) {
                     case 'П':
                         scheduleDots.push(<span key={index} className='week-dots-container__dot active prcatice'></span>)
                         break;
@@ -31,11 +31,9 @@ function Dots({weekSchedule, date , weekNumber}) {
             }else{
                 scheduleDots.push(<span key={index} className='week-dots-container__dot'></span>)
             }
-
-            
+      
         }
     })
-
 
     return (
         <div className='week-dots-container'>

@@ -101,3 +101,15 @@ export function getWeekScheduleByDate(schedule, date){
     return {weekSchedule, weekNumber}
 }
 
+export function getSubjectByWeekNumber(subjects, weekNumber){
+    let result
+    let isExist = false
+    subjects.map((subject)=>{
+        if(subject.weeks?.includes(weekNumber) || subject.weeks === null){
+            result = subject
+            isExist = true
+        }
+    })
+    return {result, isExist}
+}
+
